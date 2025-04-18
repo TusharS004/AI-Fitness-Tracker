@@ -1,0 +1,517 @@
+// "use client"
+
+// import { useState } from "react"
+// import { BarChart, Bar, XAxis, ResponsiveContainer } from "recharts"
+// import { FaFire, FaHeartbeat, FaRunning, FaBed, FaWeight } from "react-icons/fa"
+// import { BsCheckCircleFill } from "react-icons/bs"
+
+// const activityData = [
+//   { day: "Mon", value: 30 },
+//   { day: "Tue", value: 25 },
+//   { day: "Wed", value: 35 },
+//   { day: "Thu", value: 50 },
+//   { day: "Fri", value: 28 },
+//   { day: "Sat", value: 32 },
+//   { day: "Sun", value: 20 },
+// ]
+
+// const CircularProgress = ({ percentage, color, size = "large" }) => {
+//   const radius = size === "large" ? 60 : 30
+//   const strokeWidth = size === "large" ? 12 : 6
+//   const circumference = 2 * Math.PI * radius
+//   const offset = circumference - (percentage / 100) * circumference
+
+//   return (
+//     <svg className="transform -rotate-90" width={radius * 2 + strokeWidth} height={radius * 2 + strokeWidth}>
+//       <circle
+//         className="stroke-gray-200"
+//         strokeWidth={strokeWidth}
+//         fill="transparent"
+//         r={radius}
+//         cx={radius + strokeWidth / 2}
+//         cy={radius + strokeWidth / 2}
+//       />
+//       <circle
+//         className={`${color}`}
+//         strokeWidth={strokeWidth}
+//         strokeLinecap="round"
+//         fill="transparent"
+//         r={radius}
+//         cx={radius + strokeWidth / 2}
+//         cy={radius + strokeWidth / 2}
+//         strokeDasharray={circumference}
+//         strokeDashoffset={offset}
+//       />
+//     </svg>
+//   )
+// }
+
+// export default function Dashboard() {
+//   const [activeWeek] = useState(["SUN", "MON", "TUE", "WED", "THU"])
+
+//   return (
+//     <div className="min-h-screen bg-gray-200 p-4 lg:p-8 mt-20">
+//       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+//         {/* Main Content - Left 3 Columns */}
+//         <div className="lg:col-span-3 space-y-6">
+//           {/* Header */}
+//           <div>
+//             <h2 className="text-sm text-gray-600">Good Morning</h2>
+//             <h1 className="text-2xl font-bold">KAVYA MITTAL</h1>
+//           </div>
+
+//           {/* Metrics Cards */}
+//           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//             <div className="bg-pink-500 text-white p-6 rounded-2xl">
+//               <div className="flex justify-between items-center">
+//                 <div>
+//                   <div className="flex items-center gap-2">
+//                     <FaFire />
+//                     <span>Calories</span>
+//                   </div>
+//                   <p className="mt-1 text-sm opacity-75">Today</p>
+//                 </div>
+//                 <CircularProgress percentage={75} color="stroke-white" />
+//               </div>
+//               <p className="mt-2">Under</p>
+//             </div>
+
+//             <div className="bg-purple-500 text-white p-6 rounded-2xl">
+//               <div className="flex items-center gap-2">
+//                 <FaHeartbeat />
+//                 <span>Heart Rate</span>
+//               </div>
+//               <div className="mt-4 text-2xl font-bold">
+//                 110 <span className="text-sm font-normal">bpm</span>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/* Weekly Progress */}
+//           <div className="bg-white p-6 rounded-2xl">
+//             <h3 className="font-semibold mb-4">This Week 4/7 Days</h3>
+//             <div className="flex gap-2 justify-between">
+//               {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day) => (
+//                 <div key={day} className="flex flex-col items-center">
+//                   <div className="text-sm text-gray-600">{day}</div>
+//                   <div
+//                     className={`w-10 h-10 rounded-full flex items-center justify-center ${
+//                       activeWeek.includes(day) ? "bg-black text-white" : "bg-gray-100"
+//                     }`}
+//                   >
+//                     {activeWeek.includes(day) && <BsCheckCircleFill />}
+//                   </div>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Activity Chart */}
+//           <div className="bg-white p-6 rounded-2xl">
+//             <h3 className="font-semibold mb-4">Activity</h3>
+//             <div className="h-64">
+//               <ResponsiveContainer width="100%" height="100%">
+//                 <BarChart data={activityData}>
+//                   <XAxis dataKey="day" />
+//                   <Bar dataKey="value" fill="#f97316" radius={[4, 4, 0, 0]} />
+//                 </BarChart>
+//               </ResponsiveContainer>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Right Sidebar */}
+//         <div className="bg-white p-6 rounded-2xl">
+//           <div className="flex items-center gap-4 mb-6">
+//             <img src="https://placekitten.com/40/40" alt="Profile" className="w-10 h-10 rounded-full" />
+//             <div>
+//               <h3 className="font-semibold">Thomas Fletcher</h3>
+//               <p className="text-sm text-gray-600">@tflex, Australia</p>
+//             </div>
+//           </div>
+
+//           {/* Stats */}
+//           <div className="grid grid-cols-3 gap-4 mb-6">
+//             <div className="text-center">
+//               <p className="font-bold">
+//                 75<span className="text-sm font-normal">kg</span>
+//               </p>
+//               <p className="text-sm text-gray-600">Weight</p>
+//             </div>
+//             <div className="text-center">
+//               <p className="font-bold">6.5</p>
+//               <p className="text-sm text-gray-600">Height</p>
+//             </div>
+//             <div className="text-center">
+//               <p className="font-bold">
+//                 25<span className="text-sm font-normal">y/o</span>
+//               </p>
+//               <p className="text-sm text-gray-600">Age</p>
+//             </div>
+//           </div>
+
+//           {/* Goals */}
+//           <div className="space-y-4">
+//             <h3 className="font-semibold">Your Goals</h3>
+//             <div className="space-y-3">
+//               <div className="flex items-center justify-between">
+//                 <div className="flex items-center gap-2">
+//                   <FaRunning className="text-blue-500" />
+//                   <div>
+//                     <p className="font-medium">Running</p>
+//                     <p className="text-sm text-gray-600">70km/90km</p>
+//                   </div>
+//                 </div>
+//                 <span className="text-blue-500">78%</span>
+//               </div>
+//               <div className="flex items-center justify-between">
+//                 <div className="flex items-center gap-2">
+//                   <FaBed className="text-purple-500" />
+//                   <div>
+//                     <p className="font-medium">Sleeping</p>
+//                     <p className="text-sm text-gray-600">6hr/20hrs</p>
+//                   </div>
+//                 </div>
+//                 <span className="text-purple-500">60%</span>
+//               </div>
+//               <div className="flex items-center justify-between">
+//                 <div className="flex items-center gap-2">
+//                   <FaWeight className="text-orange-500" />
+//                   <div>
+//                     <p className="font-medium">Weight Loss</p>
+//                     <p className="text-sm text-gray-600">7kg/10kg</p>
+//                   </div>
+//                 </div>
+//                 <span className="text-orange-500">60%</span>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/* Monthly Progress */}
+//           <div className="mt-6">
+//             <h3 className="font-semibold mb-4">Monthly Progress</h3>
+//             <div className="flex flex-col items-center">
+//               <CircularProgress percentage={80} color="stroke-orange-500" />
+//               <p className="text-sm text-gray-600 mt-2">You have achieved 80% of your goal this month</p>
+//             </div>
+//           </div>
+
+//           {/* Scheduled Activities */}
+//           <div className="mt-6">
+//             <h3 className="font-semibold mb-4">Scheduled</h3>
+//             <div className="space-y-3">
+//               <div className="flex items-center justify-between">
+//                 <div className="flex items-center gap-2">
+//                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">🧘‍♀️</div>
+//                   <div>
+//                     <p className="font-medium">Training - Yoga Class</p>
+//                     <p className="text-sm text-gray-600">Fitness</p>
+//                   </div>
+//                 </div>
+//                 <span className="text-sm text-gray-600">22 Mar</span>
+//               </div>
+//               <div className="flex items-center justify-between">
+//                 <div className="flex items-center gap-2">
+//                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">🏊‍♂️</div>
+//                   <div>
+//                     <p className="font-medium">Training - Swimming</p>
+//                     <p className="text-sm text-gray-600">Fitness</p>
+//                   </div>
+//                 </div>
+//                 <span className="text-sm text-gray-600">22 Mar</span>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+
+
+"use client"
+import { BarChart, Bar, XAxis, ResponsiveContainer } from "recharts"
+import { FaFire, FaHeartbeat, FaRunning, FaBed, FaDumbbell } from "react-icons/fa"
+import { BsCheckCircleFill } from "react-icons/bs"
+
+const activityData = [
+  { name: "Mon", value: 20 },
+  { name: "Tue", value: 25 },
+  { name: "Wed", value: 30 },
+  { name: "Thu", value: 50 },
+  { name: "Fri", value: 25 },
+  { name: "Sat", value: 20 },
+  { name: "Sun", value: 15 },
+]
+
+const CircularProgress = ({ data }) => {
+  const total = data.reduce((acc, curr) => acc + curr.hours, 0)
+  let currentAngle = 0
+
+  return (
+    <div className="relative">
+      <svg className="w-32 h-32">
+        {data.map((item, index) => {
+          const percentage = (item.hours / total) * 100
+          const angle = (percentage / 100) * 360
+          const x1 = Math.cos((currentAngle - 90) * (Math.PI / 180)) * 50 + 64
+          const y1 = Math.sin((currentAngle - 90) * (Math.PI / 180)) * 50 + 64
+          const x2 = Math.cos((currentAngle + angle - 90) * (Math.PI / 180)) * 50 + 64
+          const y2 = Math.sin((currentAngle + angle - 90) * (Math.PI / 180)) * 50 + 64
+          const largeArcFlag = angle > 180 ? 1 : 0
+
+          currentAngle += angle
+
+          return (
+            <path key={index} d={`M 64,64 L ${x1},${y1} A 50,50 0 ${largeArcFlag},1 ${x2},${y2} Z`} fill={item.color} />
+          )
+        })}
+        <circle cx="64" cy="64" r="40" fill="white" />
+      </svg>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-xl font-bold">40hrs</div>
+          <div className="text-xs text-gray-500">Stretching</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function Dashboard() {
+  const progressData = [
+    { name: "Cardio", hours: 30, color: "#4FD1C5" },
+    { name: "Stretching", hours: 40, color: "#9F7AEA" },
+    { name: "Treadmill", hours: 30, color: "#FC8181" },
+    { name: "Strength", hours: 20, color: "#4299E1" },
+  ]
+
+  return (
+    <div className="min-h-screen bg-gray-200 p-6 mt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        {/* Main Content */}
+        <div className="lg:col-span-3 space-y-6">
+          {/* Header */}
+          <div>
+            <h2 className="text-gray-600">Good Morning</h2>
+            <h1 className="text-2xl font-bold">Tushar Singla</h1>
+          </div>
+
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Calories Card */}
+            <div className="bg-rose-400 rounded-3xl p-6 text-white">
+              <div className="flex items-center gap-2">
+                <FaFire />
+                <span>Calories</span>
+              </div>
+              <div className="mt-2 text-sm opacity-80">Today</div>
+              <div className="mt-2">Under</div>
+            </div>
+
+            {/* Heart Rate Card */}
+            <div className="bg-violet-500 rounded-3xl p-6 text-white">
+              <div className="flex items-center gap-2">
+                <FaHeartbeat />
+                <span>Heart Rate</span>
+              </div>
+              <div className="flex items-baseline mt-4">
+                <span className="text-3xl font-bold">110</span>
+                <span className="ml-1">Bpm</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Weekly Calendar */}
+          <div className="bg-white rounded-3xl p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="font-semibold">This Week</h3>
+              <span className="text-gray-500">4/7 Days</span>
+            </div>
+            <div className="grid grid-cols-7 gap-4">
+              {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day, index) => (
+                <div key={day} className="flex flex-col items-center">
+                  <div className="text-sm text-gray-600 mb-2">{day}</div>
+                  <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center 
+                    ${index < 5 ? "bg-black text-white" : "bg-gray-100"}`}
+                  >
+                    {index < 5 && <BsCheckCircleFill />}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Activity Charts */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Bar Chart */}
+            <div className="bg-white rounded-3xl p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-semibold">Activity</h3>
+                <select className="text-sm text-gray-500 bg-transparent">
+                  <option>Weekly</option>
+                </select>
+              </div>
+              <div className="h-64">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={activityData}>
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} />
+                    <Bar dataKey="value" fill="#F97316" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
+            {/* Progress Chart */}
+            <div className="bg-white rounded-3xl p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-semibold">Progress</h3>
+                <select className="text-sm text-gray-500 bg-transparent">
+                  <option>Weekly</option>
+                </select>
+              </div>
+              <CircularProgress data={progressData} />
+              <div className="mt-4 space-y-2">
+                {progressData.map((item, index) => (
+                  <div key={index} className="flex justify-between items-center">
+                    <span className="text-sm">{item.name}</span>
+                    <span className="text-sm text-gray-500">{item.hours} hrs</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Sidebar */}
+        <div className="bg-white rounded-3xl p-6">
+          {/* Profile */}
+          <div className="flex items-center gap-4 mb-8">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-02-06%20204041-4Rv3Wn7Sk9FiY8hkPbhXYHQS79SS5G.png"
+              alt="Profile"
+              className="w-12 h-12 rounded-full"
+            />
+            <div>
+              <h3 className="font-semibold">Tushar Singla</h3>
+              <p className="text-sm text-gray-500">@Panjab, India</p>
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 text-center mb-8">
+            <div>
+              <p className="text-xl font-bold">
+                75<span className="text-sm font-normal">/kg</span>
+              </p>
+              <p className="text-sm text-gray-500">Weight</p>
+            </div>
+            <div>
+              <p className="text-xl font-bold">6.5</p>
+              <p className="text-sm text-gray-500">Height</p>
+            </div>
+            <div>
+              <p className="text-xl font-bold">
+                25<span className="text-sm font-normal">/yo</span>
+              </p>
+              <p className="text-sm text-gray-500">Age</p>
+            </div>
+          </div>
+
+          {/* Goals */}
+          <div className="mb-8">
+            <h3 className="font-semibold mb-4">Your Goals</h3>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <FaRunning className="text-blue-500" />
+                  <div>
+                    <p className="font-medium">Running</p>
+                    <p className="text-sm text-gray-500">70km/90km</p>
+                  </div>
+                </div>
+                <span className="text-blue-500">78%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <FaBed className="text-violet-500" />
+                  <div>
+                    <p className="font-medium">Sleeping</p>
+                    <p className="text-sm text-gray-500">6hr/20hrs</p>
+                  </div>
+                </div>
+                <span className="text-violet-500">60%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <FaDumbbell className="text-orange-500" />
+                  <div>
+                    <p className="font-medium">Weight Loss</p>
+                    <p className="text-sm text-gray-500">7kg/10kg</p>
+                  </div>
+                </div>
+                <span className="text-orange-500">60%</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Monthly Progress */}
+          <div className="mb-8">
+            <h3 className="font-semibold mb-4">Monthly Progress</h3>
+            <div className="flex flex-col items-center">
+              <div className="relative w-32 h-32">
+                <svg className="transform -rotate-90">
+                  <circle cx="64" cy="64" r="60" stroke="#F3F4F6" strokeWidth="8" fill="none" />
+                  <circle
+                    cx="64"
+                    cy="64"
+                    r="60"
+                    stroke="#F97316"
+                    strokeWidth="8"
+                    fill="none"
+                    strokeDasharray="377"
+                    strokeDashoffset="75.4"
+                  />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-2xl font-bold">80%</span>
+                </div>
+              </div>
+              <p className="text-sm text-gray-500 text-center mt-2">You have achieved 80% of your goal this month</p>
+            </div>
+          </div>
+
+          {/* Scheduled */}
+          <div>
+            <h3 className="font-semibold mb-4">Scheduled</h3>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">🧘‍♀️</div>
+                  <div>
+                    <p className="font-medium">Training - Yoga Class</p>
+                    <p className="text-sm text-gray-500">Fitness</p>
+                  </div>
+                </div>
+                <span className="text-sm text-gray-500">22 Mar</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">🏊‍♂️</div>
+                  <div>
+                    <p className="font-medium">Training - Swimming</p>
+                    <p className="text-sm text-gray-500">Fitness</p>
+                  </div>
+                </div>
+                <span className="text-sm text-gray-500">22 Mar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
