@@ -72,8 +72,10 @@ const features = [
   ];
 
   const goToPage = () => {  
-    // window.location.href = 'http://localhost:8080';
-    window.location.href = 'https://aiworkout.profematika.com/';
+    window.open (
+      'http://127.0.0.1:5001/',
+      '_blank' 
+    );
   }
 
 function HomePage() {
@@ -159,7 +161,7 @@ function HomePage() {
 
     <section className="bg-gray-200 py-16 px-6 md:px-16">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900 mb-6 text-center mb-20">LATEST BLOGS</h2>
+        <h2 className="text-4xl font-bold text-gray-900 text-center mb-20">LATEST BLOGS</h2>
 
         {/* Grid Layout for Blog Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

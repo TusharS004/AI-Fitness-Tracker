@@ -1,33 +1,45 @@
-import './App.css'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import React from 'react'
-// import Footer from './components/Footer'
-import HomePage from './pages/HomePage'
-import Header from './components/Header'
-import Page2 from './pages/Page2'
-import CreateAccount from './pages/CreateAccount'
-import Page3 from './pages/Page3'
-import Page4 from './pages/Page4'
-import Leaderboard from './pages/Leaderboard'
+// src/App.js
 
+import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+import Signup from './pages/User/Signup';
+import Details from './pages/User/Details';
+import Login from './pages/User/Login';
+import OtpVerify from './pages/User/OtpVerify';
+import ResetPassword from './pages/User/ResetPassword';
+
+import HomePage from './pages/HomePage';
+import Challenges from './pages/Challenges';
+import Dashboard from './pages/Dashboard';
+import Leaderboard from './pages/Leaderboard';
+
+import { AuthProvider } from './pages/AuthContext';  // Import AuthProvider
+import ProtectedRoute from './pages/ProtectedRoute';  // Import ProtectedRoute
 
 function App() {
-
   return (
-    <>
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/createaccount" element={<CreateAccount />} />
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-        <Route path="/meditation" element={<Page2 />} />
-        <Route path="/challenges" element={<Page4 />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
-      </Routes>
-    </Router>
-    </>
- )
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/details" element={<Details />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/otpverify" element={<OtpVerify />} />
+          <Route path="/resetpassword" element={<ResetPassword />} />
+
+          {/* Protected Routes */}
+          <Route path="/challenges"  element={<Challenges />}  />
+          <Route path="/dashboard"  element={<Dashboard />}  />
+          <Route path="/leaderboard"  element={<Leaderboard />} />
+        </Routes>
+        <Footer />
+      </Router>
+  );
 }
 
 export default App;
