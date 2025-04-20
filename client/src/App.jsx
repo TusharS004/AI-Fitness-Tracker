@@ -17,8 +17,8 @@ import Challenges from './pages/Challenges';
 import Dashboard from './pages/Dashboard';
 import Leaderboard from './pages/Leaderboard';
 
-import { AuthProvider } from './pages/AuthContext';  // Import AuthProvider
-import ProtectedRoute from './pages/ProtectedRoute';  // Import ProtectedRoute
+// import { AuthProvider } from './pages/AuthContext';  // Import AuthProvider
+// import ProtectedRoute from './pages/ProtectedRoute';  // Import ProtectedRoute
 
 function App() {
   return (
