@@ -74,7 +74,7 @@ export const registerUser = async (req, res) => {
     // Store only the authentication token in a cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: process.env.NODE_ENV == 'production',
       maxAge: 24 * 60 * 60 * 1000 // 24 hours
     });
 
@@ -120,7 +120,7 @@ export const loginUser = async (req, res) => {
 
       res.cookie('token', token, {
           httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
+          secure: process.env.NODE_ENV == 'production',
           maxAge: 7 * 24 * 60 * 60 * 1000
       });
 
@@ -144,7 +144,7 @@ export const logoutUser = async (req, res) => {
       // Clear the auth token and any other cookies related to user session
       res.clearCookie('token', {
           httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
+          secure: process.env.NODE_ENV == 'production',
       });
       res.status(200).json({ message: 'Logout successful.' });
   } catch (error) {
@@ -211,7 +211,7 @@ export const addUserDetails = async (req, res) => {
     // ✅ Set new token cookie
     res.cookie("token", newToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: process.env.NODE_ENV == "production",
       maxAge: 24 * 60 * 60 * 1000
     });
 
@@ -287,7 +287,7 @@ export const verifyEmailOtp = async (req, res) => {
       // Set updated token
       res.cookie("token", newToken, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: process.env.NODE_ENV == "production",
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
       });
       
@@ -353,7 +353,7 @@ export const verifyPhoneOtp = async (req, res) => {
       // Set updated token
       res.cookie("token", newToken, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: process.env.NODE_ENV == "production",
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
       });
       
