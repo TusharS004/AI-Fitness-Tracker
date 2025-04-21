@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: "https://ai-fitness-tracker-tau.vercel.app/",
+  origin: "*",
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
