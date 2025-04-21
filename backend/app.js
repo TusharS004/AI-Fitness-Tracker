@@ -14,11 +14,8 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: "*",
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  exposedHeaders: ['set-cookie']
+  origin: [process.env.FRONTEND_URI || "http://localhost:5173"],
+  credentials: true
 };
 
 app.use(cors(corsOptions));
