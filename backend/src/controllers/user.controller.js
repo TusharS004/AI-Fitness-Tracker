@@ -75,6 +75,7 @@ export const registerUser = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV == 'production',
+      sameSite: 'None',
       maxAge: 24 * 60 * 60 * 1000 // 24 hours
     });
 
@@ -121,6 +122,7 @@ export const loginUser = async (req, res) => {
       res.cookie('token', token, {
           httpOnly: true,
           secure: process.env.NODE_ENV == 'production',
+          sameSite: 'None',
           maxAge: 7 * 24 * 60 * 60 * 1000
       });
 
@@ -212,6 +214,7 @@ export const addUserDetails = async (req, res) => {
     res.cookie("token", newToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV == "production",
+      sameSite: 'None',
       maxAge: 24 * 60 * 60 * 1000
     });
 
@@ -288,6 +291,7 @@ export const verifyEmailOtp = async (req, res) => {
       res.cookie("token", newToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV == "production",
+        sameSite: 'None',
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
       });
       
@@ -354,6 +358,7 @@ export const verifyPhoneOtp = async (req, res) => {
       res.cookie("token", newToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV == "production",
+        sameSite: 'None',
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
       });
       
