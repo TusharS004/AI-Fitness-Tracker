@@ -75,7 +75,7 @@ const Signup = () => {
       
       // Redirect to verification page or dashboard after short delay
       setTimeout(() => {
-        window.location.href = '/verify-otp'; // Or wherever you want to redirect
+        window.location.href = '/otpverify'; // Or wherever you want to redirect
       }, 2000);
       
     } catch (err) {
