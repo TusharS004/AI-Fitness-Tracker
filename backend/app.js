@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: [process.env.FRONTEND_URI || "http://localhost:5173" || "*"],
+  origin: [process.env.FRONTEND_URI || "http://localhost:5173" || "https://ai-fitness-tracker-6b6sdj1e5-tushars004s-projects.vercel.app"],
   credentials: true
 };
 
