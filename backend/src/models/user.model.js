@@ -10,8 +10,8 @@ const UserSchema = new mongoose.Schema({
   otpPhone: { type: String },
   verifiedEmail: { type: Boolean, default: false },
   verifiedPhone: { type: Boolean, default: false },
-  dob: { type: String, required: true },
-  gender: { type: String, enum: ['Male', 'Female'],required: true },
+  dob: { type: String, required: false },
+  gender: { type: String, enum: ['Male', 'Female'],required: false },
   
   // Fitness-specific details
   dailyCalorieGoal: { type: Number, default: 2000 },
@@ -35,10 +35,10 @@ const UserSchema = new mongoose.Schema({
   // Activity History (General)
   activityHistory: [
     {
-      date: { type: Date, required: true },
-      activityType: { type: String, required: true },
-      duration: { type: Number, required: true }, // in minutes
-      caloriesBurned: { type: Number, required: true },
+      date: { type: Date, required: false },
+      activityType: { type: String, required: false },
+      duration: { type: Number, required: false }, // in minutes
+      caloriesBurned: { type: Number, required: false },
       repsCount: { type: Number, default: 0 }
     }
   ],
@@ -47,8 +47,8 @@ const UserSchema = new mongoose.Schema({
   weight: { type: Number, default: 0 }, // in kg
   height: { type: Number, default: 0 }, // in cm
   bmi: { type: Number, default: 0 },
-  fitnessGoal: { type: String, enum: ['loseWeight', 'maintainWeight', 'gainWeight', 'buildMuscle'], required: true },
-  activityLevel: { type: String, enum: ['sedentary', 'light', 'moderate', 'active', 'veryActive'], required: true },
+  fitnessGoal: { type: String, enum: ['loseWeight', 'maintainWeight', 'gainWeight', 'buildMuscle'], required: false },
+  activityLevel: { type: String, enum: ['sedentary', 'light', 'moderate', 'active', 'veryActive'], required: false },
   
   // Timestamps for tracking
   lastWorkoutDate: { type: Date },
