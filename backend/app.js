@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: ["https://ai-fitness-tracker-6b6sdj1e5-tushars004s-projects.vercel.app"],
+  origin: ["https://ai-fitness-tracker-j0dr9zt08-tushars004s-projects.vercel.app"],
   credentials: true
 };
 
