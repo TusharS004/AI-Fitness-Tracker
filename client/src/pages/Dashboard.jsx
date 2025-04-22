@@ -61,7 +61,7 @@ const progressData = [
 export default function Dashboard() {
 
   const [userData, setUserData] = useState({
-    name: "Yash Sharma",
+    name: "",
     age: 25,
     weight: 75,
     height: 6.5,
