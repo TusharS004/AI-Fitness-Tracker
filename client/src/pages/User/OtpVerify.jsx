@@ -155,7 +155,7 @@ export default function OtpVerify() {
   // Redirect to /studentregister2 after both OTPs are verified
   useEffect(() => {
     if (isSmsVerified && isEmailVerified) {
-      navigate("/studentregister2");
+      navigate("/dashboard");
     }
   }, [isSmsVerified, isEmailVerified, navigate]);
 
