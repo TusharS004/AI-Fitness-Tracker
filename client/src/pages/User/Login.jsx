@@ -258,7 +258,7 @@ export default function Login() {
       <div className="mt-8 text-center space-y-4">
         <p className="text-gray-600">New to our community</p>
         <button className="w-full py-2 px-4 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors"
-        onClick={() => window.location.href = "/register"}>
+        onClick={() => window.location.href = "/signup"}>
           Create an account
         </button>
       </div>
