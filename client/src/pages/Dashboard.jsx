@@ -61,7 +61,7 @@ const progressData = [
 export default function Dashboard() {
 
   const [userData, setUserData] = useState({
-    name: "Tushar Singla",
+    name: "Yash Sharma",
     age: 25,
     weight: 75,
     height: 6.5,
@@ -202,7 +202,7 @@ export default function Dashboard() {
             />
             <div>
               <h3 className="font-semibold">{userData.name}</h3>
-              <p className="text-sm text-gray-500">@Panjab, India</p>
+              <p className="text-sm text-gray-500">@Punjab, India</p>
             </div>
           </div>
 
@@ -270,7 +270,7 @@ export default function Dashboard() {
             <h3 className="font-semibold mb-4">Monthly Progress</h3>
             <div className="flex flex-col items-center">
               <div className="relative w-32 h-32">
-                <svg className="transform -rotate-90">
+                {/* <svg className="transform -rotate-90">
                   <circle cx="64" cy="64" r="60" stroke="#F3F4F6" strokeWidth="8" fill="none" />
                   <circle
                     cx="64"
@@ -282,7 +282,7 @@ export default function Dashboard() {
                     strokeDasharray="377"
                     strokeDashoffset="75.4"
                   />
-                </svg>
+                </svg> */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-2xl font-bold">80%</span>
                 </div>

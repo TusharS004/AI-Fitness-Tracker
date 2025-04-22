@@ -17,8 +17,9 @@ import Challenges from './pages/Challenges';
 import Dashboard from './pages/Dashboard';
 import Leaderboard from './pages/Leaderboard';
 
-// import { AuthProvider } from './pages/AuthContext';  // Import AuthProvider
-// import ProtectedRoute from './pages/ProtectedRoute';  // Import ProtectedRoute
+import { AuthProvider } from './pages/AuthContext';  // Import AuthProvider
+import ProtectedRoute from './pages/ProtectedRoute';  // Import ProtectedRoute
+import Page3 from './pages/Page3';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/details" element={<Details />} />
           <Route path="/login" element={<Login />} />
           <Route path="/otpverify" element={<OtpVerify />} />
+          <Route path="/page3" element={<Page3 />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
 
           {/* Protected Routes */}

@@ -51,27 +51,126 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col lg:flex-row">
-      {/* Left Section */}
-      <div className="flex-1 p-6 lg:p-16 flex items-center ml-10">
-        <div className="max-w-xl mx-auto lg:mx-0">
-          <h1 className="text-3xl lg:text-5xl font-semibold mb-4 text-center lg:text-left">
-            Attendance
-            <span className="block text-blue-700 mt-2">for your business</span>
-          </h1>
-          <p className="text-gray-600 mt-4 text-center lg:text-left text-sm lg:text-base">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-            itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora
-            at cupiditate quis eum maiores libero veritatis? Dicta facilis sint
-            aliquid ipsum atque?
-          </p>
-        </div>
+    // <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col lg:flex-row">
+    //   {/* Left Section */}
+    //   <div className="flex-1 p-6 lg:p-16 flex items-center ml-10">
+    //     <div className="max-w-xl mx-auto lg:mx-0">
+    //       <h1 className="text-3xl lg:text-5xl font-semibold mb-4 text-center lg:text-left">
+    //         Attendance
+    //         <span className="block text-blue-700 mt-2">for your business</span>
+    //       </h1>
+    //       <p className="text-gray-600 mt-4 text-center lg:text-left text-sm lg:text-base">
+    //         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
+    //         itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora
+    //         at cupiditate quis eum maiores libero veritatis? Dicta facilis sint
+    //         aliquid ipsum atque?
+    //       </p>
+    //     </div>
+    //   </div>
+
+    //   {/* Right Section */}
+    //   <div className="flex-1 flex items-center justify-center p-6 lg:p-20">
+    //     <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 lg:p-8">
+    //       <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
+    //         <div>
+    //           <label
+    //             htmlFor="email"
+    //             className="block text-sm font-medium text-gray-700 mb-1"
+    //           >
+    //             Email
+    //           </label>
+    //           <input
+    //             id="email"
+    //             type="email"
+    //             value={formData.email}
+    //             onChange={(e) =>
+    //               setFormData({ ...formData, email: e.target.value })
+    //             }
+    //             required
+    //             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+    //           />
+    //         </div>
+
+    //         <div>
+    //           <label
+    //             htmlFor="password"
+    //             className="block text-sm font-medium text-gray-700 mb-1"
+    //           >
+    //             Password
+    //           </label>
+    //           <input
+    //             id="password"
+    //             type="password"
+    //             value={formData.password}
+    //             onChange={(e) =>
+    //               setFormData({ ...formData, password: e.target.value })
+    //             }
+    //             required
+    //             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+    //           />
+    //         </div>
+
+    //         <div className="flex items-center justify-between">
+    //           {/* <div className="flex items-center">
+    //             <input
+    //               id="remember-me"
+    //               type="checkbox"
+    //               checked={formData.rememberMe}
+    //               onChange={(e) =>
+    //                 setFormData({ ...formData, rememberMe: e.target.checked })
+    //               }
+    //               className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+    //             />
+    //             <label
+    //               htmlFor="remember-me"
+    //               className="ml-2 block text-sm text-gray-700"
+    //             >
+    //               Remember me
+    //             </label>
+    //           </div> */}
+    //           <Link
+    //             href="/forgot-password"
+    //             className="text-sm text-blue-600 hover:text-blue-700"
+    //           >
+    //             Forgot password?
+    //           </Link>
+    //         </div>
+
+    //         <button
+    //           type="submit"
+    //           className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+    //         >
+    //           Sign in
+    //         </button>
+
+    //         <p className="text-center text-sm text-gray-600">
+    //           Don't have an account?{" "}
+    //           <button
+    //             className="text-blue-600 hover:text-blue-700 font-medium"
+    //             onClick={() => navigate("./StudentRegister")}
+    //           >
+    //             Register here
+    //           </button>
+    //         </p>
+    //       </form>
+    //     </div>
+    //   </div>
+    // </div>
+    
+
+
+
+    <div className="min-h-screen bg-white flex items-center justify-center mt-0 custom2:mt-10">
+    <div className="w-full max-w-md">
+      {/* Profile Icon */}
+      <div className="flex justify-center">
+        <div className="w-16 h-16 bg-gray-200 rounded-full"></div>
       </div>
 
-      {/* Right Section */}
-      <div className="flex-1 flex items-center justify-center p-6 lg:p-20">
-        <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 lg:p-8">
-          <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
+      <div className="bg-white rounded-2xl p-6 w-full">
+        <h1 className="text-2xl font-semibold text-center mb-6">Sign in</h1>
+
+        <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
             <div>
               <label
                 htmlFor="email"
@@ -147,14 +246,27 @@ export default function Login() {
               Don't have an account?{" "}
               <button
                 className="text-blue-600 hover:text-blue-700 font-medium"
-                onClick={() => navigate("./StudentRegister")}
+                onClick={() => navigate("/signup")}
               >
                 Register here
               </button>
             </p>
           </form>
-        </div>
       </div>
+
+      {/* Create Account Section */}
+      <div className="mt-8 text-center space-y-4">
+        <p className="text-gray-600">New to our community</p>
+        <button className="w-full py-2 px-4 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors"
+        onClick={() => window.location.href = "/register"}>
+          Create an account
+        </button>
+      </div>
+
+      {/* Decorative Elements */}
+      <div className="fixed top-4 right-4 w-2 h-2 bg-red-500 rounded-full"></div>
+      <div className="fixed bottom-4 right-4 w-2 h-2 bg-red-500 rounded-full"></div>
+    </div>
     </div>
   );
 }
