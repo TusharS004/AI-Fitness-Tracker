@@ -131,6 +131,9 @@ function Header() {
       try {
         const response = await axios.get(`${Backend_Uri}/api/users/profile`, {
           withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+          },
         });
         
         if (response.data && response.data.name) {
